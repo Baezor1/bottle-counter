@@ -1,4 +1,6 @@
 <script>
+	import Fullscreen from "svelte-fullscreen";
+	
 	var today = new Date()
 	var start = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0)
 	var seconds = Math.round((today-start)/1000)
@@ -32,18 +34,19 @@
 
 </script>
 
-<div class="main">
+<Fullscreen let:onRequest let:onExit>
+	<div class="main">
 
-	<p>Since Midnight in the City of Brentwood, residents have used approximately <mark>{formatNum(Math.round(percent*bottles))} plastic water bottles</mark>.</p>
-	<div class="statistics">
-		<p><mark>{formatNum(12)}</mark> bottles/minute.</p>
-		<p><mark>{formatNum(17280)}</mark> bottles/day.</p>
+		<p>Since Midnight in the City of Brentwood, residents have used approximately <mark>{formatNum(Math.round(percent*bottles))} plastic water bottles</mark>.</p>
+		<div class="statistics">
+			<p><mark>{formatNum(12)}</mark> bottles/minute.</p>
+			<p><mark>{formatNum(17280)}</mark> bottles/day.</p>
+		</div>
 	</div>
-
-	<!-- <h1>{Math.round(percent*bottles)} Bottles</h1>
-	<p>Have been wasted in the past <mark>{today.getHours()}</mark> hours.</p> -->
-</div>
-
+	<div class="fullscreen-button">
+		<button on:click={() => onRequest()}>Enter Fullscreen</button>
+	</div>
+</Fullscreen>
 <style>
 	.main {
 		width: 100vw;
@@ -69,6 +72,12 @@
 
 	.statistics {
 		margin-top: 45px;
+	}
+
+	.fullscreen-button {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
 	}
 
 	@media (max-width: 768px) {
