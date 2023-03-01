@@ -59,11 +59,6 @@
 		flex-direction: column;
 	}
 
-	.main h1 {
-		font-size: 100px;
-		padding: 0;
-		margin: 0;
-	}
 	.main p {
 		font-size: 45px;
 		padding: 0;
@@ -82,11 +77,12 @@
 
 	@media (max-width: 768px) {
 
-		.main h1 {
-			font-size: 50px;
-		}
 		.main p {
-			font-size: 20px;
+			font-size: 30px;
+		}
+
+		.fullscreen-button {
+			visibility: hidden;
 		}
 
 	}
