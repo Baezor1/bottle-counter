@@ -86,6 +86,11 @@
 
 	@media (max-width: 768px) {
 
+		.main h1 {
+			font-size: 80px;
+			width: 90vw;
+		}
+
 		.main p {
 			font-size: 30px;
 			width: 90vw;
