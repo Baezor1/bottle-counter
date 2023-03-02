@@ -37,6 +37,7 @@
 <Fullscreen let:onRequest let:onExit>
 	<div class="main">
 
+		<h1>{formatNum(Math.round(percent*bottles))} Bottles</h1>
 		<p>Since Midnight in the City of Brentwood, residents have used approximately <mark>{formatNum(Math.round(percent*bottles))} plastic water bottles</mark>.</p>
 		<div class="statistics">
 			<p><mark>{formatNum(12)}</mark> bottles/minute.</p>
@@ -59,10 +60,18 @@
 		flex-direction: column;
 	}
 
-	.main p {
-		font-size: 45px;
+	.main h1 {
+		font-size: 120px;
 		padding: 0;
 		margin: 0;
+		margin-bottom: 45px;
+	}
+
+	.main p {
+		font-size: 30px;
+		padding: 0;
+		margin: 0;
+		width: 60vw;
 	}
 
 	.statistics {
@@ -79,6 +88,7 @@
 
 		.main p {
 			font-size: 30px;
+			width: 90vw;
 		}
 
 		.fullscreen-button {
